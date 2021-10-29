@@ -6,7 +6,6 @@ use Drupal\commerce_price\Price;
 use Drupal\commerce_product\Entity\Product;
 use Drupal\commerce_product\Entity\ProductVariation;
 use Drupal\commerce_product\ProductVariationStorageInterface;
-use Drupal\Core\Entity\FieldableEntityInterface;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -104,13 +103,11 @@ class ProductsImportForm extends FormBase {
         $variation = ProductVariation::create([
           'type' => 'default',
           'sku' => $data['sku'],
-          'title' => $data['title'],
         ]);
       }
 
       $product = Product::create([
         'type' => 'default',
-        'title' => $variation->label(),
         'stores' => 1,
       ]);
 
