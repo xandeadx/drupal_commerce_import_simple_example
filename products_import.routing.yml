@@ -1,0 +1,7 @@
+products_import.import_form:
+  path: /admin/commerce/products/import
+  defaults:
+    _form: '\Drupal\products_import\Form\ProductsImportForm'
+    _title: 'Products import'
+  requirements:
+    _permission: 'administer commerce_product'

@@ -1,0 +1,5 @@
+name: Products Import Example
+type: module
+description: Example of data import in Drupal Commerce
+package: Custom
+core_version_requirement: ^8 || ^9

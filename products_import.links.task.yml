@@ -1,0 +1,11 @@
+entity.commerce_product.collection:
+  route_name: entity.commerce_product.collection
+  base_route: entity.commerce_product.collection
+  title: Products
+  weight: 1
+
+products_import.import_form:
+  route_name: products_import.import_form
+  base_route: entity.commerce_product.collection
+  title: Import
+  weight: 2
