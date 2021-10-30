@@ -109,6 +109,7 @@ class ProductsImportForm extends FormBase {
       $product = Product::create([
         'type' => 'default',
         'stores' => 1,
+        'variations' => $variation,
       ]);
 
       $context['results']['created']++;
@@ -119,17 +120,14 @@ class ProductsImportForm extends FormBase {
 
     // Set fields
     $variation->setTitle($data['title']);
-    $price_array = explode(' ', $data['price']);
-    $variation->setPrice(new Price($price_array[0], $price_array[1]));
+    [$price_number, $price_currency] = explode(' ', $data['price']);
+    $variation->setPrice(new Price($price_number, $price_currency));
     $variation->setChangedTime($current_timestamp);
     $product->setTitle($data['title']);
     $product->setChangedTime($current_timestamp);
 
     // Save product and variation
     $variation->save();
-    if ($product->isNew()) {
-      $product->set('variations', $variation);
-    }
     $product->save();
   }
 
